@@ -39,7 +39,7 @@ while True:
     # - Use the GetParameters to get only the latest message.
     # - Store the message in the "r" variable.
     r = requests.get(
-        "<!!!REPLACEME with URL of Webex Teams Messages API!!!>",
+        "https://webexapis.com/v1/messages", # Add
         params=getParameters, # Add
         headers=getHTTPHeader, # Add
     )
@@ -68,7 +68,8 @@ while True:
     if message.find("/65070021") == 0: # Add
 
         # extract the command
-        command = message.split(" ")[1] # Add
+        command = message.split(" ", 1) # Add
+        command = command[1] # Add
         print(command)
 
 # 5. Complete the logic for each command
